@@ -12,6 +12,10 @@ export default ({ title, children }: Lume.Data, helpers: Lume.Helpers) => (
       </head>
       <body class="w-screen h-screen flex flex-col">
         {children}
+        <footer class="flex items-center justify-center gap-2 h-16">
+          <p>主催: NT鯖江運営委員会</p>
+          <img src="/assets/code4fukui_logo.svg" alt="Code for FUKUI" class="h-14" />
+        </footer>
       </body>
     </html>
   </>
