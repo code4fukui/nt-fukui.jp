@@ -5,7 +5,7 @@ export default function App() {
   return (
     <main className="w-full h-full flex flex-col items-center justify-center gap-4">
       <KeyVisual />
-      <section className="text-center max-w-2xl mx-auto px-4">
+      <section className="flex flex-col items-center justify-center text-center max-w-2xl mx-auto px-4">
         <span className="text-3xl font-bold text-blue-600 mb-4">
           3年ぶりに福井にNTが帰ってきた!
         </span>
