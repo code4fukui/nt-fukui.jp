@@ -1,5 +1,6 @@
 import KeyVisual from "./components/key-visual.tsx";
 import { Sites } from "./components/sites.tsx";
+import { EventInfo } from "./components/event-info.tsx";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           皆さまの出展・見学を心よりお待ちしております！
         </p>
       </section>
+      <EventInfo />
       <Sites />
     </main>
   )
