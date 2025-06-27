@@ -23,18 +23,18 @@ const sites: Record<string, {imgUrl: string, url: string, name: string}> = {
 
 export function Sites() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4">
-      <h2 className="text-2xl font-bold">サイトマップ</h2>
-      <nav className="max-w-3/5 grid grid-cols-2 gap-4">
+    <section className="flex flex-col items-center justify-center gap-6 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl shadow-sm">
+      <h2 className="text-3xl font-bold text-gray-800">サイトマップ</h2>
+      <nav className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
         {Object.values(sites).map(site => (
           <a 
-            className="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-200 hover:shadow-lg hover:text-blue-600 hover:bg-gray-50" 
+            className="flex flex-col items-center justify-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 hover:scale-105" 
             href={site.url} 
             target="_blank" 
             rel="noopener noreferrer"
           >
-            <img src={site.imgUrl} alt={site.name} />
-            <span className="w-full overflow-hidden text-ellipsis whitespace-nowrap">{site.name}</span>
+            <img src={site.imgUrl} alt={site.name} className="mb-4 max-w-full h-auto" />
+            <span className="text-lg font-semibold text-gray-800 text-center">{site.name}</span>
           </a>
         ))}
       </nav>
