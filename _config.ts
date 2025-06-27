@@ -1,17 +1,28 @@
 import lume from "lume/mod.ts";
-import jsx from "lume/plugins/jsx.ts";
+import esbuild from "lume/plugins/esbuild.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
+import sourceMaps from "lume/plugins/source_maps.ts";
 
-const lumeOptions: Parameters<typeof lume>[0] = {
-  src: "./src",
-}
+const site = lume();
 
-const site = lume(lumeOptions);
-site.use(jsx({pageSubExtension: ".page"}));
-site.use(tailwindcss());
-
-site.add("style.css");
-site.add("CNAME");
-site.add("assets/")
+site
+  // 生成結果に含めないものは先に除外しておく
+  .ignore("README.md")
+  .ignore("app")
+  // esbuildでビルドする起点になるファイルを追加してからビルド
+  .add("main.tsx")
+  .use(esbuild({
+    extensions: [".tsx"]
+  }))
+  // tailwindのエントリーポイントを追加してからビルド
+  .add("style.css")
+  .use(tailwindcss())
+  // ソースマップはビルドが終わったあとに追加する
+  .use(sourceMaps({
+    sourceContent: true
+  }))
+  // その他必要なリソースは最後に追加
+  .add("CNAME")
+  .add("assets/")
 
 export default site;
