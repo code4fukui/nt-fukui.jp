@@ -5,23 +5,30 @@ import App from "./app/app.tsx";
 const ssr = renderToString(createElement(App));
 
 export default function (_data: Lume.Data, { url }: Lume.Helpers) {
+  // ベースパスをクライアントサイドで使用できるようにする
+  const basePath = Deno.env.get("BASE_PATH") || "";
+
   return /* HTML */ `
     <!DOCTYPE html>
     <html lang="ja">
       <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>NTふくい 2025</title>
-        <link rel="stylesheet" href="${url("style.css")}">
-        <link rel="icon" href="/assets/sabae-hana-icon.png">
+        <link rel="stylesheet" href="${url("style.css")}" />
+        <link rel="icon" href="${url("/assets/sabae-hana-icon.png")}" />
+        <script>
+          window.__BASE_PATH__ = "${basePath}";
+        </script>
       </head>
       <body>
         <div id="app">${ssr}</div>
+        <script src="${url("main.js")}"></script>
         <footer class="flex items-center justify-center gap-2 h-16 mt-4">
           <p>主催: NT鯖江運営委員会</p>
-          <img src="/assets/code4fukui_logo.svg" alt="Code for FUKUI" class="h-14" />
+          <img src="${url("/assets/code4fukui_logo.svg")}" alt="Code for FUKUI" class="h-14" />
         </footer>
       </body>
     </html>
-  `
+  `;
 }

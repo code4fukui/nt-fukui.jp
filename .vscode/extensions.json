@@ -2,6 +2,7 @@
   "recommendations": [
     "tobermory.es6-string-html",
     "denoland.vscode-deno",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "github.vscode-github-actions"
   ]
 }
