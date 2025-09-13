@@ -21,7 +21,7 @@ site
   .use(
     esbuild({
       extensions: [".tsx"],
-    })
+    }),
   )
   // tailwindのエントリーポイントを追加してからビルド
   .add("style.css")
@@ -30,7 +30,7 @@ site
   .use(
     sourceMaps({
       sourceContent: true,
-    })
+    }),
   )
   // その他必要なリソースは最後に追加
   .add("CNAME")

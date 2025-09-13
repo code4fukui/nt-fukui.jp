@@ -1,8 +1,7 @@
 // ベースパスを環境変数から取得
-const BASE_PATH =
-  typeof window !== "undefined"
-    ? (window as { __BASE_PATH__?: string }).__BASE_PATH__ || ""
-    : Deno?.env?.get("BASE_PATH") || "";
+const BASE_PATH = typeof window !== "undefined"
+  ? (window as { __BASE_PATH__?: string }).__BASE_PATH__ || ""
+  : Deno?.env?.get("BASE_PATH") || "";
 
 /**
  * ベースパスを考慮したURLを生成する

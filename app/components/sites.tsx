@@ -3,12 +3,14 @@ import { url } from "../utils/path.ts";
 const sites: Record<string, { imgUrl: string; url: string; name: string }> = {
   nicotech: {
     imgUrl: "/assets/nicotech.png",
-    url: "http://wiki.nicotech.jp/nico_tech/index.php?%E3%83%8B%E3%82%B3%E3%83%8B%E3%82%B3%E6%8A%80%E8%A1%93%E9%83%A8%E3%80%80%E3%81%BE%E3%81%A8%E3%82%81wiki",
+    url:
+      "http://wiki.nicotech.jp/nico_tech/index.php?%E3%83%8B%E3%82%B3%E3%83%8B%E3%82%B3%E6%8A%80%E8%A1%93%E9%83%A8%E3%80%80%E3%81%BE%E3%81%A8%E3%82%81wiki",
     name: "ニコニコ技術部まとめwiki",
   },
   ntFukuiWiki: {
     imgUrl: "/assets/ntfukui2025-banner.png",
-    url: "https://wiki.nicotech.jp/nico_tech/index.php?NT%E3%81%B5%E3%81%8F%E3%81%842025",
+    url:
+      "https://wiki.nicotech.jp/nico_tech/index.php?NT%E3%81%B5%E3%81%8F%E3%81%842025",
     name: "NTふくい2025wiki",
   },
   ntSabae2022HP: {
@@ -35,8 +37,14 @@ export function Sites() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={url(site.imgUrl)} alt={site.name} className="mb-4 max-w-full h-auto" />
-            <span className="text-lg font-semibold text-gray-800 text-center">{site.name}</span>
+            <img
+              src={url(site.imgUrl)}
+              alt={site.name}
+              className="mb-4 max-w-full h-auto"
+            />
+            <span className="text-lg font-semibold text-gray-800 text-center">
+              {site.name}
+            </span>
           </a>
         ))}
       </nav>

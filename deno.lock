@@ -522,6 +522,7 @@
     }
   },
   "redirects": {
+    "https://esm.sh/@types/react@~19.0.12/index.d.ts": "https://esm.sh/@types/react@19.0.14/index.d.ts",
     "https://esm.sh/@types/react@~19.0.12/jsx-runtime.d.ts": "https://esm.sh/@types/react@19.0.14/jsx-runtime.d.ts"
   },
   "remote": {

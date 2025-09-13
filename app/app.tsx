@@ -22,5 +22,5 @@ export default function App() {
       <EventInfo />
       <Sites />
     </main>
-  )
+  );
 }

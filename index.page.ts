@@ -26,7 +26,9 @@ export default function (_data: Lume.Data, { url }: Lume.Helpers) {
         <script src="${url("main.js")}"></script>
         <footer class="flex items-center justify-center gap-2 h-16 mt-4">
           <p>主催: NT鯖江運営委員会</p>
-          <img src="${url("/assets/code4fukui_logo.svg")}" alt="Code for FUKUI" class="h-14" />
+          <img src="${
+    url("/assets/code4fukui_logo.svg")
+  }" alt="Code for FUKUI" class="h-14" />
         </footer>
       </body>
     </html>

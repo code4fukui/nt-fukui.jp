@@ -10,7 +10,8 @@ export default function KeyVisual() {
       <section
         className="w-[100dvw] max-h-[429px] h-[calc(100dvw_*_(858_/_921))] flex flex-col items-center justify-center gap-4 bg-contain bg-no-repeat bg-center"
         style={{ backgroundImage: `url('${url("/assets/ntfukui2025.png")}')` }}
-      ></section>
+      >
+      </section>
     </section>
   );
 }
