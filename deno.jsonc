@@ -6,6 +6,7 @@
     "react-dom/": "https://esm.sh/react-dom@19.1.0/"
   },
   "tasks": {
+    "init-hooks": "git config --local core.hooksPath \"$(git rev-parse --show-toplevel)/.hooks\" && chmod +x .hooks/* && echo 'Initialized git hooks.'",
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     // "NT"のASCIIコード0x4Eと0x54なので、合計してdecimalにして20052
