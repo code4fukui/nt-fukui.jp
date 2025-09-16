@@ -1,6 +1,21 @@
 import { url } from "../utils/path.ts";
 
-const sites: Record<string, { imgUrl: string; url: string; name: string }> = {
+const sites: Record<
+  string,
+  { imgUrl: string; url: string; name: string; description?: string }
+> = {
+  cyberfriday: {
+    imgUrl: "/assets/cyberfriday.png",
+    url: "https://cybervalley.jp/cyberfriday.html",
+    name: "Cyber Friday",
+    description: "前日 9/26(金) 19:00~ 開催",
+  },
+  kumando: {
+    imgUrl: "/assets/kumando-digital-alive.png",
+    url: "https://www.fisc.jp/kumadigifes/",
+    name: "クマンドウ デジタルアライブ",
+    description: "9/25(木)〜9/28(日) 開催",
+  },
   nicotech: {
     imgUrl: "/assets/nicotech.png",
     url:
@@ -42,9 +57,14 @@ export function Sites() {
               alt={site.name}
               className="mb-4 max-w-full h-auto"
             />
-            <span className="text-lg font-semibold text-gray-800 text-center">
+            <h3 className="text-lg font-semibold text-gray-800 text-center">
               {site.name}
-            </span>
+            </h3>
+            {site.description && (
+              <p className="text-sm text-gray-600 text-center mt-2">
+                {site.description}
+              </p>
+            )}
           </a>
         ))}
       </nav>
