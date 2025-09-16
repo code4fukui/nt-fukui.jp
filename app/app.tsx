@@ -4,7 +4,7 @@ import { EventInfo } from "./components/event-info.tsx";
 
 export default function App() {
   return (
-    <main className="w-full h-full flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <main className="w-full h-full flex flex-col items-center justify-center gap-8 bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen pb-5">
       <KeyVisual />
       <section className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-8 py-12 bg-white rounded-xl shadow-md">
         <span className="text-3xl font-bold text-blue-600 mb-6">
