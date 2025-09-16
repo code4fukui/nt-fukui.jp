@@ -60,22 +60,22 @@ export function EventInfo() {
       </div>
 
       {/* アクセス情報 */}
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 w-full">
         <h3 className="text-xl font-semibold text-gray-800 mb-4">アクセス</h3>
         <p className="text-gray-600 mb-4">
           福井駅からバスで約30分
         </p>
 
         {/* Googleマップ埋め込み */}
-        <div className="w-full max-w-2xl mx-auto">
+        <div className="w-full">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25796.407116832543!2d136.21395609872445!3d36.080056930132265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8bfd5f0098d97%3A0x7743bfe77700adb9!2z44Ko44Or44ORKOODqeODluODquODvOODkeODvOODiOODiuODvCBMcGEp!5e0!3m2!1sja!2sjp!4v1751014629710!5m2!1sja!2sjp"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.903849535309!2d136.24781581207037!3d36.09583180697178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff8bfd5f0098d97%3A0x7743bfe77700adb9!2z44Ko44Or44OR!5e0!3m2!1sja!2sjp!4v1757991405698!5m2!1sja!2sjp"
+            width="100%"
             className="border-0 w-full h-64"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+          />
         </div>
       </div>
     </section>
