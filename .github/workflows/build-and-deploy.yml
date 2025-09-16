@@ -31,11 +31,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
       - name: Build
-        run: timeout 120s deno task build
+        # code4fukui下のリポジトリならBASE_PATHなし、forkならリポジトリ名を使用
+        run: |
+          if [ "${{ github.repository }}" = "original-owner/nt-fukui.jp" ]; then
+            timeout 120s deno task build
+          else
+            export BASE_PATH="/${{ github.event.repository.name }}"
+            timeout 120s deno task build
+          fi
+        # タイムアウトによって異常終了するため、エラーを無視
         continue-on-error: true
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -43,7 +52,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './_site'
+          path: "./_site"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
