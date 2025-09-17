@@ -37,6 +37,7 @@ jobs:
       - name: Build
         # code4fukui下のリポジトリならBASE_PATHなし、forkならリポジトリ名を使用
         run: |
+          echo "GITHUB_REPOSITORY=${{ github.repository }}"
           if [ "${{ github.repository }}" = "code4fukui/nt-fukui.jp" ]; then
             timeout 120s deno task build
           else
