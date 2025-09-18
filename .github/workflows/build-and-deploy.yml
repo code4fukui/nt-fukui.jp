@@ -21,6 +21,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  IS_ORIGINAL_REPO: ${{ github.repository == 'code4fukui/fukui-kanko-people-flow-visualization' }}
+  IS_MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -34,16 +38,20 @@ jobs:
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
-      - name: Build
-        # code4fukui下のリポジトリならBASE_PATHなし、forkならリポジトリ名を使用
+
+      # code4fukui下のリポジトリならBASE_PATHなしでビルド
+      - name: Build no BasePath
+        if: env.IS_ORIGINAL_REPO == 'true'
         run: |
-          echo "GITHUB_REPOSITORY=${{ github.repository }}"
-          if [ "${{ github.repository }}" = "code4fukui/nt-fukui.jp" ]; then
-            timeout 120s deno task build
-          else
-            export BASE_PATH="/${{ github.event.repository.name }}"
-            timeout 120s deno task build
-          fi
+          timeout 30s deno task build
+
+      # forkされたリポジトリではBasePathを設定してビルド
+      - name: Build with BasePath
+        if: env.IS_ORIGINAL_REPO == 'false'
+        run: |
+          export BASE_PATH="/${{ github.event.repository.name }}"
+          timeout 30s deno task build
+
         # タイムアウトによって異常終了するため、エラーを無視
         continue-on-error: true
       - name: Setup Pages
