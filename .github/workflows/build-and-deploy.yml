@@ -49,7 +49,7 @@ jobs:
       - name: Build with BasePath
         if: env.IS_ORIGINAL_REPO == 'false'
         run: |
-          export BASE_PATH="/${{ github.event.repository.name }}"
+          export BASE_PATH="/nt-fukui.jp"
           timeout 30s deno task build
 
         # タイムアウトによって異常終了するため、エラーを無視
