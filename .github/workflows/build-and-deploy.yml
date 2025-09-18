@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  IS_ORIGINAL_REPO: ${{ github.repository == 'code4fukui/fukui-kanko-people-flow-visualization' }}
+  IS_ORIGINAL_REPO: ${{ github.repository == 'code4fukui/nt-fukui.jp' }}
   IS_MAIN_BRANCH: ${{ github.ref == 'refs/heads/main' }}
 
 jobs:
