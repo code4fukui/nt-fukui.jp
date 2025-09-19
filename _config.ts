@@ -15,18 +15,22 @@ site
   .ignore("app")
   // esbuildでビルドする起点になるファイルを追加してからビルド
   .add("main.tsx")
-  .use(esbuild({
-    extensions: [".tsx"]
-  }))
+  .use(
+    esbuild({
+      extensions: [".tsx"],
+    }),
+  )
   // tailwindのエントリーポイントを追加してからビルド
   .add("style.css")
   .use(tailwindcss())
   // ソースマップはビルドが終わったあとに追加する
-  .use(sourceMaps({
-    sourceContent: true
-  }))
+  .use(
+    sourceMaps({
+      sourceContent: true,
+    }),
+  )
   // その他必要なリソースは最後に追加
   .add("CNAME")
-  .add("assets/")
+  .add("assets/");
 
 export default site;
