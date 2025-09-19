@@ -44,6 +44,8 @@ jobs:
         if: env.IS_ORIGINAL_REPO == 'true'
         run: |
           timeout 30s deno task build
+        # タイムアウトによって異常終了するため、エラーを無視
+        continue-on-error: true
 
       # forkされたリポジトリではBasePathを設定してビルド
       - name: Build with BasePath
@@ -51,9 +53,9 @@ jobs:
         run: |
           export BASE_PATH="/nt-fukui.jp"
           timeout 30s deno task build
-
         # タイムアウトによって異常終了するため、エラーを無視
         continue-on-error: true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
