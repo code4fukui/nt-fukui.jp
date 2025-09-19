@@ -42,18 +42,24 @@ jobs:
       # code4fukui下のリポジトリならBASE_PATHなしでビルド
       - name: Build no BasePath
         if: env.IS_ORIGINAL_REPO == 'true'
+        env:
+          PAGES_URL: 'https://nt-fukui.jp'
         run: |
           timeout 30s deno task build
+        # タイムアウトによって異常終了するため、エラーを無視
+        continue-on-error: true
 
       # forkされたリポジトリではBasePathを設定してビルド
       - name: Build with BasePath
         if: env.IS_ORIGINAL_REPO == 'false'
+        env:
+          PAGES_URL: 'https://${{ github.repository_owner }}.github.io/nt-fukui.jp'
         run: |
           export BASE_PATH="/nt-fukui.jp"
           timeout 30s deno task build
-
         # タイムアウトによって異常終了するため、エラーを無視
         continue-on-error: true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
