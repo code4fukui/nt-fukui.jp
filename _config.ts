@@ -1,11 +1,15 @@
 import lume from "lume/mod.ts";
+import basePath from "lume/plugins/base_path.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import sourceMaps from "lume/plugins/source_maps.ts";
 
-const site = lume();
+const site = lume({
+  location: new URL(Deno.env.get("PAGES_URL") ?? "https://nt-fukui.jp"),
+});
 
 site
+  .use(basePath())
   // 生成結果に含めないものは先に除外しておく
   .ignore("README.md")
   .ignore("app")
