@@ -12,7 +12,7 @@
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
     "build": "deno task lume",
     // "NT"のASCIIコード0x4Eと0x54なので、合計してdecimalにして20052
-    "serve": "deno task lume -s -p 20052"
+    "serve": "PAGES_URL=\"http://localhost:20052\" deno task lume -s -p 20052"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
