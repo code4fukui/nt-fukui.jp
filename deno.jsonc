@@ -1,0 +1,27 @@
+{
+  "imports": {
+    "clsx": "npm:clsx@^2.1.1",
+    "lume/": "https://deno.land/x/lume@v3.0.2/",
+    "class-names": "npm:classnames",
+    "react": "npm:react@19.1.0",
+    "react-dom": "npm:react-dom@19.1.0",
+    "tailwind-merge": "npm:tailwind-merge@^3.3.1"
+  },
+  "tasks": {
+    "init-hooks": "git config --local core.hooksPath \"$(git rev-parse --show-toplevel)/.hooks\" && chmod +x .hooks/* && echo 'Initialized git hooks.'",
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -",
+    "build": "deno task lume",
+    // "NT"のASCIIコード0x4Eと0x54なので、合計してdecimalにして20052
+    "serve": "PAGES_URL=\"http://localhost:20052\" deno task lume -s -p 20052"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "https://esm.sh/react@19.1.0",
+    "types": ["lume/types.ts"],
+    "lib": ["dom", "dom.iterable", "dom.asynciterable", "deno.ns"]
+  },
+  "unstable": ["temporal"],
+  "lint": {
+    "plugins": ["https://deno.land/x/lume@v3.0.2/lint.ts"]
+  }
+}
