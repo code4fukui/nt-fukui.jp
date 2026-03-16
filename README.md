@@ -1,34 +1,27 @@
-# nt-fukui.jp
+# NT Fukui 2025
+日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-NT ふくいの LP リポジトリです。\
-[Deno](https://deno.com/)と[Lume](https://lume.land/)を利用して開発しています。
+This repository contains the Lume-based static site for the NT Fukui 2025 event.
 
-## 開発環境
+## Features
 
-以下のソフトウェアが必要です。
+- Built with [Deno](https://deno.com/) and [Lume](https://lume.land/)
+- Automatic build and deployment via GitHub Actions
+- Responsive and accessible design
+- Embedded Google Maps and event details
 
-- [Deno](https://deno.com)
-  - インストール: <https://docs.deno.com/runtime/>
+## Requirements
 
-## ディレクトリ構成
+- [Deno](https://deno.com/runtime) installed
 
-- \_site
-  - ビルド結果が出力されるディレクトリです
-  - gitignore によって追跡範囲外に設定されています
-- src
-  - このディレクトリ内のソースがビルドされ出力されます
+## Usage
 
-## 開発
+- Start the development server: `deno task serve`
+- Build the site: `deno task build`
 
-- 開発用サーバーの起動
-  - `deno task serve`
-- サイトのビルド
-  - `deno task build`
+## GitHub Actions
 
-## デプロイ
+A GitHub Actions workflow is set up to automatically build and deploy the site on push or pull request to the `main` branch. The base path is set correctly for both the original repository and forks.
 
-### GitHub Actions
-
-GitHub Actions ワークフローが設定されており、`main`ブランチへの push または PR
-で自動的にビルド・デプロイが実行されます。fork
-リポジトリでも自動的に適切なベースパスが設定されます。
+## License
+This project is licensed under the [MIT License](LICENSE).
